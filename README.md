@@ -14,10 +14,10 @@ We'll use the classic "Iris" data set to build and test our algorithms. It's pro
 
 The four numbers are features of the flower, things like petal width and stamen length. The last string is a label - this row is measurements of [Iris Setosa](https://en.wikipedia.org/wiki/Iris_setosa).
 
-I suggest we use this dataset because you don't need to know what the data means to get the algorithm working, and it's small - 150 rows - so we can start with writing a completely naive classifier and focus on the machine learning and functional programming aspects, without worrying about performance.
+I suggest we use this dataset because you don't need to know what the data means to get the algorithm working, we know we should be able to get good performance from it, and it's small - 150 rows - so we can start with writing a completely naive classifier and focus on the machine learning and functional programming aspects, without worrying about performance.
 
 Your task, should you choose to accept it, is:
-* to write a kNN classifier and the necessary scaffolding to run it against the Iris data set, using leave-one-out cross-validation to produce a mean correct predictions for a given value of k.
+* to write a kNN classifier and the necessary scaffolding to run it against the Iris data set, using [leave-one-out cross-validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)#Leave-one-out_cross-validation) to produce a mean correct predictions for a given value of k.
 
 The following is a suggested breakdown - feel free to completely ignore it!
 
@@ -37,7 +37,6 @@ Once you have a working classifier, there's a whole bunch of things you can play
 * evaluating performance with just the % correct predictions is pretty basic, try better performance measures like AUC
 * try more validation approaches instead of just leave-one-out cross-validation
 * anything you want to play with!
-
 
 Copyright © 2017 Paul Brabban
 
