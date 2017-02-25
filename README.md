@@ -4,7 +4,7 @@ Instructions and tips for (def shef 33) kNN classifier dojo
 
 # kNN Algorithm
 
-Google "kNN" or "k nearest neighbour" for explanations of the algorithm. [Wikipedia]() has detailed information, other sources like [Machine Learning Mastery](http://machinelearningmastery.com/k-nearest-neighbors-for-machine-learning/) may be easier for a crash course.
+Google "kNN" or "k nearest neighbour" for explanations of the algorithm. [Wikipedia](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) has detailed information, other sources like [Machine Learning Mastery](http://machinelearningmastery.com/k-nearest-neighbors-for-machine-learning/) may be easier for a crash course.
 
 Essentially, the naive kNN classifier considers data as points in a space - each point has co-ordinates and a label. The co-ordinates are known as "features". This approach means you can measure the distance between any two points in that space, and so you can find the "nearest neighbounrs" of any point. The algorithm performs this calculation for an unlabelled datum and classifies the unlabelled point the same as the majority of its "k" nearest neighbours. Simple!
 
