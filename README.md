@@ -6,7 +6,7 @@ Instructions and tips for (def shef 33) kNN classifier dojo
 
 Google "kNN" or "k nearest neighbour" for explanations of the algorithm. [Wikipedia](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) has detailed information, other sources like [Machine Learning Mastery](http://machinelearningmastery.com/k-nearest-neighbors-for-machine-learning/) may be easier for a crash course.
 
-Essentially, the naive kNN classifier considers data as points in a space - each point has co-ordinates and a label. The co-ordinates are known as "features". This approach means you can measure the distance between any two points in that space, and so you can find the "nearest neighbounrs" of any point. The algorithm performs this calculation for an unlabelled datum and classifies the unlabelled point the same as the majority of its "k" nearest neighbours. Simple!
+Essentially, the naive kNN classifier considers data as points in a space - each point has co-ordinates and a label. The co-ordinates are known as "features". This approach means you can measure the distance between any two points in that space, and so you can find the "nearest neighbours" of any point. The algorithm performs this calculation for an unlabelled datum and classifies the unlabelled point the same as the majority of its "k" nearest neighbours. Simple!
 
 We'll use the classic "Iris" data set to build and test our algorithms. It's provided by the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Iris) and it's a comma-separated table with rows like this:
 
@@ -14,7 +14,7 @@ We'll use the classic "Iris" data set to build and test our algorithms. It's pro
 
 The four numbers are features of the flower, things like petal width and stamen length. The last string is a label - this row is measurements of [Iris Setosa](https://en.wikipedia.org/wiki/Iris_setosa).
 
-I suggest we use this dataset because you don't need to know what the data means to get the algorithm working, we know we should be able to get good performance from it, and it's small - 150 rows - so we can start with writing a completely naive classifier and focus on the machine learning and functional programming aspects, without worrying about performance.
+I suggest we use this dataset because you don't need to know what the data means to get the algorithm working, we know we should be able to get good predictive power from it, and it's small - 150 rows - so we can start with writing a completely naive classifier and focus on the machine learning and functional programming aspects, without worrying about performance.
 
 Your task, should you choose to accept it, is:
 * to write a kNN classifier and the necessary scaffolding to run it against the Iris data set, using [leave-one-out cross-validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)#Leave-one-out_cross-validation) to produce a mean correct predictions for a given value of k.
