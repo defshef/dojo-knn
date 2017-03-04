@@ -2,6 +2,10 @@
 
 Instructions and tips for (def shef 33) kNN classifier dojo
 
+# You Will Need...
+
+* a laptop with a suitable programming language installed and working
+
 # kNN Algorithm
 
 Google "kNN" or "k nearest neighbour" for explanations of the algorithm. [Wikipedia](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) has detailed information, other sources like [Machine Learning Mastery](http://machinelearningmastery.com/k-nearest-neighbors-for-machine-learning/) may be easier for a crash course.
