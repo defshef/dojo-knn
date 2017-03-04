@@ -27,7 +27,7 @@ The following is a suggested breakdown - feel free to completely ignore it!
 * Write an algorithm to "test" your classifier that takes the output of your "train" algorithm and a test dataset, predicts the labels of the test dataset, and returns a % correct predictions
 * Write an algorithm to run your train/test cycle until all the "folds" have been used as a test dataset, and average the % correct predictions
 
-There's a quick implementation I did in Clojure included in this project. I provide it here in case you get completely stuck on something!
+There's a quick (and dirty!) implementation I did in Clojure included in this project. I provide it here in case you get completely stuck on something! For an example of target performance on the iris dataset using this implementation, I typically get mean correct predictions exceeding 0.9, but variation on exact accuracy between runs.
 
 Once you have a working classifier, there's a whole bunch of things you can play with, for example:
 * optimising for a larger dataset (I suggest the [Phishing Websites dataset](https://archive.ics.uci.edu/ml/datasets/Phishing+Websites) with 11 features and several thousand rows, as it has numeric attributes so will work if you assumed numeric attributes...)

@@ -84,3 +84,12 @@
                  folds)]
     {:results results
      :mean (double (amean results))}))
+
+(defn run-experiment [dataset-location examples-per-fold k]
+  (->>
+   "file:///home/paul/projects/defshef/dojo-knn/resources/iris.data"
+   load-dataset
+   randomize
+   (dataset->folds examples-per-fold)
+   train-test-seq
+   (evaluate-performance k)))
