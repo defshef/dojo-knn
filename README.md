@@ -18,6 +18,7 @@ I suggest we use this dataset because you don't need to know what the data means
 
 Your task, should you choose to accept it, is:
 * to write a kNN classifier and the necessary scaffolding to run it against the Iris data set, using [leave-one-out cross-validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)#Leave-one-out_cross-validation) to produce a mean correct predictions for a given value of k.
+** Leave-one-out cross-validation means split the randomised dataset up into k "folds", then for each fold f, train on the rest of the dataset and use f to test the classifier
 * bonus points - write a test that runs your classifier with a known "k" value and a known data set to produce a known result (harder than you might think!)
 
 The following is a suggested breakdown - feel free to completely ignore it!
@@ -25,6 +26,7 @@ The following is a suggested breakdown - feel free to completely ignore it!
 * Parse the data set into numeric features and labels
 * Write an algorithm to "train" your classifier that takes a value for k and a training dataset
 * Write an algorithm to "test" your classifier that takes the output of your "train" algorithm and a test dataset, predicts the labels of the test dataset, and returns a % correct predictions
+* Write an algorithm to run your train/test cycle until all the "folds" have been used as a test dataset, and average the % correct predictions
 
 There's a quick implementation I did in Clojure included in this project. I provide it here in case you get completely stuck on something!
 
