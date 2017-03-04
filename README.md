@@ -17,8 +17,7 @@ The four numbers are features of the flower, things like petal width and stamen 
 I suggest we use this dataset because you don't need to know what the data means to get the algorithm working, we know we should be able to get good predictive power from it, and it's small - 150 rows - so we can start with writing a completely naive classifier and focus on the machine learning and functional programming aspects, without worrying about performance.
 
 Your task, should you choose to accept it, is:
-* to write a kNN classifier and the necessary scaffolding to run it against the Iris data set, using [leave-one-out cross-validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)#Leave-one-out_cross-validation) to produce a mean correct predictions for a given value of k.
-** Leave-one-out cross-validation means split the randomised dataset up into k "folds", then for each fold f, train on the rest of the dataset and use f to test the classifier
+* to write a kNN classifier and the necessary scaffolding to run it against the Iris data set, using [leave-one-out cross-validation](https://en.wikipedia.org/wiki/Cross-validation_(statistics)#Leave-one-out_cross-validation) to produce a mean correct predictions for a given value of k. (Leave-one-out cross-validation means split the randomised dataset up into k "folds", then for each fold f, train on the rest of the dataset and use f to test the classifier)
 * bonus points - write a test that runs your classifier with a known "k" value and a known data set to produce a known result (harder than you might think!)
 
 The following is a suggested breakdown - feel free to completely ignore it!
