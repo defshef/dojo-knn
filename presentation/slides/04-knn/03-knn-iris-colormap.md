@@ -3,7 +3,7 @@
 <div>
   <figure style="display: inline-block; width: 100%">
     <img src="images/knn-sepal-length-petal-length.png" width="300" height="300"
-      alt="An x-y scatter plot. Clearly delineated horizontal stripes in three colours are striking, showing the differenting power of these two features."></img>
+      alt="An x-y scatter plot. Clearly delineated horizontal stripes in three colours are striking, showing the differentiating power of these two features."></img>
     <figcaption>Scatter plot of training data and predictions. Features plotted are petal length vs. sepal length.</figcaption>
   </figure>
 </div>

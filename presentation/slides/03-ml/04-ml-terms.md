@@ -1,7 +1,7 @@
 ## Classification
 
 ### We're solving a classification problem
-> what is the species of this iris?
+> is this iris versicolor, setosa or virginica?
 
 ### There are other kinds...
 - regression, like predicting a numeric house price
