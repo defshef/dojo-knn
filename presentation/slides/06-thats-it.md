@@ -1,6 +1,6 @@
 ## That's it!
 
-Instructions and the data set are at https://github.com/defshef/dojo-knn/README.md
+Instructions and the data set are at https://github.com/defshef/dojo-knn
 
 - Any language you like
 - Work alone or in groups
