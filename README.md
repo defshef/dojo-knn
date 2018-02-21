@@ -2,6 +2,8 @@
 
 Instructions and tips for (def shef 33) kNN classifier dojo
 
+There's a [presentation](https://defshef.github.io/dojo-knn/presentation/build) to give you context and get you started.
+
 # You Will Need...
 
 * a laptop with a suitable programming language installed and working
