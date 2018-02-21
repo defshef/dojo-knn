@@ -1,0 +1,3 @@
+## Like so...
+
+![Describes the test-train split process, randomly assigning 70% of the examples to a training set and 30% to a test set.](images/test-train-split.png)

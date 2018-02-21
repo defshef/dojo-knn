@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Prez</title>
+
+    <meta name="description" content="-- DESCRIPTION HERE --">
+    <meta name="author" content="paul">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="css/highlight/styles/zenburn.css" id="highlight-theme">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <link rel="stylesheet" href="css/custom.css">
+
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides"><section id="welcome" class="slide" data-has-notes="false">
+<h2>Welcome!</h2><p>A Functional Machine Learning Classifier</p>
+<p>Paul Brabban</p>
+<p><a href="sheffieldml.org.uk">sheffieldml.org.uk</a> &amp; (def shef)</p>
+</section>
+
+<section id="chapter-the-problem" class="chapter">
+<section id="the-problem-irises" class="slide" data-has-notes="false">
+<h2>The Problem</h2><p>Meet the Irises</p>
+<div>
+  <figure style="display: inline-block; float: left; width: 33%">
+    <img src="images/iris_setosa.jpg" width="300" height="300"
+      alt="A blue flower, close up. We see stamens and petals curling down."></img>
+    <figcaption>Iris Setosa</figcaption>
+    <figcaption style="font-size: small">Image: <a href="https://commons.wikimedia.org/wiki/File:Irissetosa1.jpg">Денис Анисимов via Wikimedia</a></figcaption>
+  </figure>
+
+  <figure style="display: inline-block; float: left; width: 33%">
+    <img src="images/iris_versicolor.jpg" width="300" height="300"
+      alt="A purple flower, from a similar angle as the first figure. I can't say what is different, apart from the colour."></img>
+    <figcaption>Iris Versicolor</figcaption>
+    <figcaption style="font-size: small">Image: <a href="https://commons.wikimedia.org/wiki/File:Iris_versicolor_3.jpg">Danielle Langlois via Wikimedia</a></figcaption>
+  </figure>
+
+  <figure style="display: inline-block; float: left; width: 33%">
+    <img src="images/iris_virginica.jpg" width="300" height="300"
+      alt="A pale blue flower, from a similar angle as the first figure. Again, I can't say what is different, apart from the colour."></img>
+    <figcaption>Iris Virginica</figcaption>
+    <figcaption style="font-size: small">Image: <a href="https://commons.wikimedia.org/wiki/File:Iris_virginica.jpg">Frank Mayfield via Wikimedia</a></figcaption>
+  </figure>
+</div>
+</section>
+
+<section id="the-problem-self-test" class="slide" data-has-notes="true">
+<h2>The Problem</h2><p>Which is this?</p>
+<div>
+  <figure style="display: inline-block; width: 75%">
+    <img src="images/iris_unknown.jpg" width="300" height="300" style="filter: grayscale(100%)"
+      alt="A greyscale image of an iris. It is very difficult to judge which species it is."></img>
+    <figcaption>Iris...?</figcaption>
+    <figcaption style="font-size: small">Image: <a href="https://commons.wikimedia.org/wiki/File:iris_versicolor_2.jpg">Danielle Langlois via Wikimedia</a></figcaption>
+  </figure>
+</div>
+</section>
+</section>
+
+<section id="chapter-ml" class="chapter">
+<section id="ml-ml" class="slide" data-has-notes="true">
+<h2>Machine Learning</h2><p>Techniques that let machines learn from experience, without being explicitly programmed.</p><aside class="notes"><ul>
+<li>first coined by an IBM engineer in 1959</li>
+<li>an area of AI - AI has been around a lot longer</li>
+</ul></aside>
+</section>
+
+<section id="ml-ml-how" class="slide" data-has-notes="false">
+<h2>Machine Learning</h2><p>Machine learning models predict things.</p>
+<ul>
+<li>how much a house will sell for</li>
+<li>which numeric digit a digitised photo shows</li>
+<li>whether an applicant will pay back a loan</li>
+<li>whether a image of cells is normal or cancerous</li>
+</ul>
+<p>and uncountably more...</p>
+</section>
+
+<section id="ml-ml-how" class="slide" data-has-notes="false">
+<h2>Machine Learning</h2><p>Even what species a particular iris belongs to!</p>
+<p><figure style="display: inline-block; width: 75%">
+  <img src="images/iris_unknown.jpg" width="300" height="300" style="filter: grayscale(100%) opacity(50%)"
+    alt="A greyscale image of an iris. It is very difficult to judge which species it is."></img>
+  <figcaption>Iris...?</figcaption>
+  <figcaption style="font-size: small">Image: <a href="https://commons.wikimedia.org/wiki/File:iris_versicolor_2.jpg">Danielle Langlois via Wikimedia</a></figcaption>
+</figure></p>
+<div style="font-size: 150%; margin-top: 5%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); color: black">VERSICOLOR</div>
+</section>
+
+<section id="ml-ml-terms" class="slide" data-has-notes="true">
+<h2>Classification</h2><h3>We&#39;re solving a classification problem</h3><blockquote>
+<p>is this iris versicolor, setosa or virginica?</p>
+</blockquote>
+<h3>There are other kinds...</h3><ul>
+<li>regression, like predicting a numeric house price</li>
+<li>unsupervised, when we don&#39;t know the answers</li>
+</ul><aside class="notes"><p>the iris problem is:</p>
+<ul>
+<li>classification (what species is this one?)</li>
+<li>supervised (we have a dataset with correct answers in it)</li>
+</ul></aside>
+</section>
+
+<section id="ml-ml-examples" class="slide" data-has-notes="true">
+<h2>Examples</h2><p>To learn a supervised problem, we need examples</p>
+<blockquote>
+<p>5.1,3.5,1.4,0.2,Iris-setosa</p>
+</blockquote>
+<ul>
+<li>Four Features:<ul>
+<li>Petal width &amp; length</li>
+<li>Sepal width &amp; length</li>
+</ul>
+</li>
+<li>One Label (Setosa | Versicolor | Virginica)</li>
+</ul><aside class="notes"><ul>
+<li>examples consist of four floating point numbers, plus a text label</li>
+<li>there are 150 examples in the data set</li>
+</ul></aside>
+</section>
+
+<section id="ml-ml-training-testing" class="slide" data-has-notes="true">
+<h2>Training and Testing</h2><h3>Training</h3><ul>
+<li>training examples are fed to the ML algorithm</li>
+<li>a model is built that can predict for new examples</li>
+</ul>
+<h3>Testing</h3><ul>
+<li>the model predicts for examples it hasn&#39;t seen before</li>
+<li>&quot;goodness&quot; of the model is assessed</li>
+</ul><aside class="notes"><ul>
+<li>goodness is a more complex problem than you&#39;d think</li>
+</ul></aside>
+</section>
+</section>
+
+<section id="chapter-knn" class="chapter">
+<section id="knn-knn-classifier" class="slide" data-has-notes="true">
+<h2>The kNN classifier</h2><p>We&#39;re going to use a classic algorithm:</p>
+<p>a k-Nearest Neighbours classifier.</p><aside class="notes"><p>It looks at how similar a new example is to the examples it trained with,
+and classifies as the same as the most-similar &#39;k&#39; training examples.</p></aside>
+</section>
+
+<section id="knn-knn-iris-local" class="slide" data-has-notes="true">
+<h2>The kNN classifier</h2><div>
+  <figure style="display: inline-block; width: 100%">
+    <img src="images/knn-closeup.png" width="340" height="300"
+      alt="An x-y scatter plot. Blue and green training data points are visible, with lines connecting a new colourless data point with its five nearest neighbours. Four of the five are blue."></img>
+    <figcaption>A new data point&#39;s nearest neighbours with k=5. Classify as Blue!</figcaption>
+  </figure>
+</div><aside class="notes"><ul>
+<li>Each training example is plotted in a different colour for each species.</li>
+<li>Four of the five nearest data points are blue, so the new example is classified as blue.</li>
+</ul></aside>
+</section>
+
+<section id="knn-knn-iris-colormap" class="slide" data-has-notes="true">
+<h2>The kNN classifier</h2><div>
+  <figure style="display: inline-block; width: 100%">
+    <img src="images/knn-sepal-length-petal-length.png" width="300" height="300"
+      alt="An x-y scatter plot. Clearly delineated horizontal stripes in three colours are striking, showing the differentiating power of these two features."></img>
+    <figcaption>Scatter plot of training data and predictions. Features plotted are petal length vs. sepal length.</figcaption>
+  </figure>
+</div><aside class="notes"><ul>
+<li>Each training example is plotted in a different colour for each species.</li>
+<li>Predictions are made over the whole x-y space and regions coloured in a lighter version of the training example colours.</li>
+<li>The clear, striking stripes show that these features are pretty good at differentiating the species.</li>
+</ul></aside>
+</section>
+
+<section id="knn-training" class="slide" data-has-notes="false">
+<h2>Training</h2><p>Most algorithms have a &#39;training&#39; phase where they deduce and optimise a target function.</p>
+<p>The k-NN classifier doesn&#39;t really have a training phase as it just &#39;memorizes&#39; the training data.</p>
+</section>
+</section>
+
+<section id="chapter-validation" class="chapter">
+<section id="validation-validation" class="slide" data-has-notes="false">
+<h2>Validation</h2><blockquote>
+<p>...but is it good at predicting the species?</p>
+</blockquote>
+<p>How do we measure the effectiveness of our algorithm?</p>
+</section>
+
+<section id="validation-simple-split" class="slide" data-has-notes="true">
+<h2>Train/Test Split</h2><ul>
+<li>assign some examples to a &quot;training&quot; set (say 70%)</li>
+<li>and the rest to a &quot;test&quot; set (say 30%)</li>
+<li>have the algorithm memorize the training set</li>
+<li>predict the classes of the test set</li>
+<li>how many did it get right? (%)</li>
+</ul><aside class="notes"><ul>
+<li>simple approach<ul>
+<li>you need to assign examples to the train/test sets randomly!</li>
+</ul>
+</li>
+</ul></aside>
+</section>
+
+<section id="validation-simple-split-diag" class="slide" data-has-notes="false">
+<h2>Like so...</h2><p><img src="images/test-train-split.png" alt="Describes the test-train split process, randomly assigning 70% of the examples to a training set and 30% to a test set."></p>
+</section>
+
+<section id="validation-k-fold-xv" class="slide" data-has-notes="true">
+<h2>k-Fold Cross-Validation</h2><blockquote>
+<p>Make better use of your data!</p>
+</blockquote>
+<ul>
+<li>choose say k = 5, then</li>
+<li>randomly assign examples to 5 equal sized &quot;folds&quot;</li>
+<li>train with 4/5 &quot;folds&quot;, test with the other</li>
+<li>5 times</li>
+<li>average the % correct</li>
+</ul><aside class="notes"><ul>
+<li>reuse your valuable data set k times!</li>
+</ul></aside>
+</section>
+
+<section id="validation-k-fold-xv-diag" class="slide" data-has-notes="false">
+<h2>Like so...</h2><p><img src="images/k-fold-eval.png" alt="Representation of a 5-fold split and averaging the results"></p>
+</section>
+</section>
+
+<section id="thats-it" class="slide" data-has-notes="false">
+<h2>That&#39;s it!</h2><p>Instructions and the data set are at <a href="https://github.com/defshef/dojo-knn/README.md">https://github.com/defshef/dojo-knn/README.md</a></p>
+<ul>
+<li>Any language you like</li>
+<li>Work alone or in groups</li>
+<li>If you&#39;re stuck shout up for a hint</li>
+<li>Last 20 mins will be a show-and-tell by... YOU LOT!</li>
+<li>Thank you and enjoy!</li>
+</ul>
+</section></div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: Reveal.getQueryHash().transition || 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+        //{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        //{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        //{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true }
+      ]
+    });
+    </script>
+
+    <script src="js/dynamic-theme.js"></script><script src="js/custom.js"></script>
+
+  </body>
+</html>
